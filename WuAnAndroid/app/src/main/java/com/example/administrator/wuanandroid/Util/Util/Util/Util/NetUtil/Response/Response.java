@@ -1,4 +1,4 @@
-package com.example.administrator.wuanandroid.Util.NetUtil.Response;
+package com.example.administrator.wuanandroid.Util.Util.Util.Util.NetUtil.Response;
 
 public class Response <T> {
 

@@ -1,4 +1,4 @@
-package com.example.administrator.wuanandroid.Util.NetUtil.Request;
+package com.example.administrator.wuanandroid.Util.Util.Util.Util.NetUtil.Request;
 
 public interface Request {
 

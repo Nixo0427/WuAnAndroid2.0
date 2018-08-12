@@ -47,4 +47,12 @@ dependencies {
     // 必要依赖，解析json字符所用
     implementation 'com.squareup.okhttp3:logging-interceptor:3.8.1'
     //非必要依赖， log依赖，如果需要打印OkHttpLog需要添加
+
+
+    implementation 'com.jakewharton:butterknife:8.8.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+    //BufferKinfe
+    implementation 'org.greenrobot:eventbus:3.1.1'
+    //EventBus
+
 }
