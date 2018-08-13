@@ -55,4 +55,10 @@ dependencies {
     implementation 'org.greenrobot:eventbus:3.1.1'
     //EventBus
 
+    //RecyclerView
+    compile 'com.android.support:recyclerview-v7:28.+'
+    //CardView
+    compile 'com.android.support:cardview-v7:28.+'
+
+
 }
