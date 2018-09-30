@@ -9,8 +9,12 @@ object Api{
 
     //--------------------接口--------------------//
 
-
+    //登陆
     val LOGIN = baseUrl+"login"
+    //注册
+    val REGISTER = baseUrl+"regist"
+    //获取分组列表
+    val FINDALLGROUPINFO = baseUrl+"findAllGroupInfo"
 
 
 

@@ -68,6 +68,7 @@ class LoginActivity : BaseActivity() , View.OnClickListener {
         map.put("password", password)
         MyOkHttpUtils.postJson().json(map).url(LOGIN).build().execute(object : StringCallback() {
             override fun onError(call: Call, e: Exception, id: Int) {
+                ToastUtils.newToastCenter(this@LoginActivity,"网络连接失败")
 
             }
 
