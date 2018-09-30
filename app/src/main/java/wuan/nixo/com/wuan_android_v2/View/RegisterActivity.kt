@@ -5,6 +5,8 @@ import android.os.Bundle
 import android.text.TextUtils
 import android.view.View
 import kotlinx.android.synthetic.main.activity_register.*
+import wuan.nixo.com.wuan_android_v2.Ext.isNull
+import wuan.nixo.com.wuan_android_v2.Ext.yes
 import wuan.nixo.com.wuan_android_v2.R
 import wuan.nixo.com.wuan_android_v2.R.id.tv_register
 import wuan.nixo.com.wuan_android_v2.utils.StringUtils
@@ -23,7 +25,9 @@ class RegisterActivity :BaseActivity(), View.OnClickListener {
     override fun onClick(p0: View?) {
         when(p0){
             tv_register->{
-//                et_username.
+                et_username.text.toString().isNull().yes {
+
+                }
             }
 
 

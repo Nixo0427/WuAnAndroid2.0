@@ -39,24 +39,20 @@ class LoginActivity : BaseActivity() , View.OnClickListener {
                 val password = et_password.text.toString().trim()
                 Log.i("Nixo", account + "------>>----" + password)
                 println("isNull返回值-------------》"+account.isNull())
-                (account.isNull()).yes{
-                    ToastUtils.newToastCenter(this,"yes")
-                }.otherwise{
-                    ToastUtils.newToastCenter(this,"no")
+
+                (account.isNull()).yes {
+                    ToastUtils.newToastCenter(this, "请输入邮箱")
+                }.otherwise {
+                    (password.isNull()).yes {
+                        ToastUtils.newToastCenter(this, "请输入密码")
+                    }.otherwise {
+                        (account.contains("@")).yes {
+                            login(account, password)
+                        }.otherwise {
+                            ToastUtils.newToastCenter(this, "请输入正确的邮箱格式")
+                        }
+                    }
                 }
-//                (StringUtils.isEmpty(account)).yes {
-//                    ToastUtils.newToastCenter(this, "请输入邮箱")
-//                }.otherwise {
-//                    (StringUtils.isEmpty(password)).yes {
-//                        ToastUtils.newToastCenter(this, "请输入密码")
-//                    }.otherwise {
-//                        (account.contains("@")).yes {
-//                            login(account, password)
-//                        }.otherwise {
-//                            ToastUtils.newToastCenter(this, "请输入正确的邮箱格式")
-//                        }
-//                    }
-//                }
             }
             tv_register -> {
                 startActivity(RegisterActivity::class.java)

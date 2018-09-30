@@ -12,42 +12,28 @@ package wuan.nixo.com.wuan_android_v2.Ext
  */
 sealed class BooleanExt<out T>
 
-/**
- * 扩展类的对象。
- */
-object Otherwise:BooleanExt<Nothing>()
+object Otherwise: BooleanExt<Nothing>()
+class WithData<T>(val data: T): BooleanExt<T>()
 
-class withData<T>(val data:T):BooleanExt<T>()
-
-/**
- * 内连函数，编译时直接插入代码块中
- */
-
-inline fun <T> Boolean.yes(block:() -> T) = when(this){
-    this ->{
-        println("BooleanExt -----> yes")
-        withData( block())
-    }
-    else ->{
-        println("BooleanExt -----> no")
-        Otherwise
-    }
-}
-
-
-
-inline fun <T>BooleanExt<T>.otherwise(block: () -> T):T = when(this){
-    is Otherwise -> block()
-    is withData -> this.data
-}
-
-
-inline fun <T>Boolean.no(block: () -> T):BooleanExt<T> =
-        when{
-            this->{
-                Otherwise
+inline fun <T> Boolean.yes(block: ()->T) =
+        when {
+            this -> {
+                WithData(block())
             }
             else -> {
-                withData(block())
+                Otherwise
             }
+        }
+
+inline fun <T> Boolean.no(block: () -> T) = when {
+    this -> Otherwise
+    else -> {
+        WithData(block())
+    }
+}
+
+inline fun <T> BooleanExt<T>.otherwise(block: ()->T): T =
+        when(this){
+            is Otherwise -> block()
+            is WithData -> this.data
         }
