@@ -2,7 +2,7 @@
 <resources>
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorAccent">#3195ff</color>
 
     <color name="statusBarColor">#fff</color>
 
@@ -45,6 +45,8 @@
 
     <color name="line_bottom_color">#26000000</color>
     <color name="card_num_color">#d9000000</color>
+    <color name="nocolor">#00000000</color>
+
 
 
     <color name="viewfinder_frame">#00cc00</color><!-- 绿色 -->
@@ -71,4 +73,5 @@
     <color name="item_text_color">#ff293f4a</color>
     <color name="color_ededed">#EDEDED</color>
     <color name="color_808080">#808080</color>
+    <color name="color_bantouming">#4dcccccc</color>
 </resources>

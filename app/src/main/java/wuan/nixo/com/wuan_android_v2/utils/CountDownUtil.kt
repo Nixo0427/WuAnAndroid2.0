@@ -5,7 +5,10 @@ import android.util.Log
 import android.widget.TextView
 import java.util.*
 
-class CountDownUtil(time : Long , start :Long ,var  tv :TextView ) : CountDownTimer(time , start) {
+class CountDownUtil(time : Long , start :Long ,var  day :TextView , var  hour :TextView ,var  min
+:TextView,var  secon :TextView  ) :
+        CountDownTimer(time ,
+        start) {
 
     var calendar = Calendar.getInstance()
 
@@ -24,6 +27,10 @@ override fun onTick(millisUntilFinished: Long) {
         var hours = (millisUntilFinished2 % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
         var minutes = (millisUntilFinished2 % (1000 * 60 * 60)) / (1000 * 60)
         var seconds = ((millisUntilFinished2 % (1000 * 60)) / 1000 )
-        tv.text = "$days"+"天"+"$hours"+"时"+"$minutes"+"分"+"$seconds"+"秒"
+        day.text = "$days"
+        hour.text = "$hours"
+        hour.text = "$minutes"
+        hour.text = "$seconds"
     }
+
 }

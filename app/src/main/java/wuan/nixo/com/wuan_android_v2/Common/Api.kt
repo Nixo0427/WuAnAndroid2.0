@@ -15,6 +15,8 @@ object Api{
     val REGISTER = baseUrl+"regist"
     //获取分组列表
     val FINDALLGROUPINFO = baseUrl+"findAllGroupInfo"
+    //选择分组
+    val GROUP = baseUrl+"group"
 
 
 
