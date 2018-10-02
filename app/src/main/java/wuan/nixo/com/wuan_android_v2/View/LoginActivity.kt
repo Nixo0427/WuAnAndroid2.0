@@ -7,25 +7,21 @@ import com.zhy.http.okhttp.callback.StringCallback
 import kotlinx.android.synthetic.main.activity_login.*
 import okhttp3.Call
 import wuan.nixo.com.wuan_android_v2.Common.Api.LOGIN
-import wuan.nixo.com.wuan_android_v2.Ext.isNull
-import wuan.nixo.com.wuan_android_v2.Ext.otherwise
-import wuan.nixo.com.wuan_android_v2.Ext.pref
-import wuan.nixo.com.wuan_android_v2.Ext.yes
-
+import wuan.nixo.com.wuan_android_v2.Ext.*
 import wuan.nixo.com.wuan_android_v2.MainActivity
 import wuan.nixo.com.wuan_android_v2.Model.BaseModel
 import wuan.nixo.com.wuan_android_v2.R
-import wuan.nixo.com.wuan_android_v2.utils.Preferences
-import wuan.nixo.com.wuan_android_v2.utils.StringUtils
+import wuan.nixo.com.wuan_android_v2.utils.SharedUtil
+
 import wuan.nixo.com.wuan_android_v2.utils.ToastUtils
 import wuan.nixo.com.wuan_android_v2.utils.http.MyOkHttpUtils
 import wuan.nixo.com.wuan_android_v2.utils.view.BaseActivity
 
 class LoginActivity : BaseActivity() , View.OnClickListener {
+    override val layoutId: Int
+        get() = R.layout.activity_login
 
-    override fun getLayoutId(): Int {
-        return R.layout.activity_login
-    }
+
 
     override fun initView() {
         tv_login.setOnClickListener(this)
@@ -62,12 +58,13 @@ class LoginActivity : BaseActivity() , View.OnClickListener {
 
 
 
-    fun login(account: String, password: String): Unit {
+    fun login(account: String, password: String) {
         var map = HashMap<String, String>()
         map.put("email", account)
         map.put("password", password)
         MyOkHttpUtils.postJson().json(map).url(LOGIN).build().execute(object : StringCallback() {
             override fun onError(call: Call, e: Exception, id: Int) {
+                e.printStackTrace()
                 ToastUtils.newToastCenter(this@LoginActivity,"网络连接失败")
 
             }
@@ -77,12 +74,15 @@ class LoginActivity : BaseActivity() , View.OnClickListener {
                 if("500".equals(bean.infoCode)){
                     ToastUtils.newToastCenter(this@LoginActivity,"登录失败")
                 }else if("200".equals(bean.infoCode)){
-                    var groupId by pref(bean.groupId)
-                    var groupName by pref(bean.groupName)
-                    var week by pref(bean.currWeek)
-                    var userId by pref("$bean.userId")
-                    ToastUtils.newToastCenter(this@LoginActivity,"登录成功")
-                    startActivity(MainActivity::class.java)
+                    if(bean.groupId == 0){
+                        startActivity(GroupActivity::class.java)
+                    }else{
+                        SharedUtil().putInt(this@LoginActivity,"userId",bean.userId)
+                        SharedUtil().putInt(this@LoginActivity,"groupId",bean.groupId)
+                        ToastUtils.newToastCenter(this@LoginActivity,"登录成功")
+                        startActivity(MainActivity::class.java)
+                    }
+
                 }else{
                     ToastUtils.newToastCenter(this@LoginActivity,bean.infoText)
                 }
@@ -90,4 +90,3 @@ class LoginActivity : BaseActivity() , View.OnClickListener {
         })
     }
 }
-

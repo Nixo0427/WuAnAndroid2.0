@@ -33,6 +33,7 @@
    <EditText
        android:id="@+id/et_account"
        android:hint="@string/email"
+       android:text="tt@qq.com"
        android:layout_marginTop="250dp"
        android:layout_marginLeft="50dp"
        android:layout_marginRight="50dp"
@@ -44,6 +45,8 @@
    <EditText
        android:id="@+id/et_password"
        android:hint="@string/password"
+       android:text="111"
+       android:inputType="textPassword"
        android:layout_marginTop="310dp"
        android:layout_marginLeft="50dp"
        android:layout_marginRight="50dp"

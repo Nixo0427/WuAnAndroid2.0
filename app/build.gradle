@@ -65,5 +65,6 @@ dependencies {
 
     //MD风格底部导航栏
     implementation 'com.ashokvarma.android:bottom-navigation-bar:2.0.5'
-
+    //下拉菜单
+    implementation 'com.github.FJ917:FJDropDownMenu:v1.1'
 }

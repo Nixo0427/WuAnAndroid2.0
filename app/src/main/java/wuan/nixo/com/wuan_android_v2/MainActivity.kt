@@ -1,31 +1,31 @@
 package wuan.nixo.com.wuan_android_v2
 
-import android.content.Intent
-import android.net.Uri
-import android.support.v7.app.AppCompatActivity
-import android.os.Bundle
-import android.view.Menu
-import android.view.MenuItem
+import android.util.Log
 import com.ashokvarma.bottomnavigation.BottomNavigationBar
-import com.ashokvarma.bottomnavigation.BottomNavigationBar.MODE_SHIFTING
 import com.ashokvarma.bottomnavigation.BottomNavigationItem
 import kotlinx.android.synthetic.main.activity_main.*
-import wuan.nixo.com.wuan_android_v2.R.mipmap.human
-import wuan.nixo.com.wuan_android_v2.R.mipmap.paper
+
+import wuan.nixo.com.wuan_android_v2.Ext.SharedExt
+import wuan.nixo.com.wuan_android_v2.Ext.pref
+import wuan.nixo.com.wuan_android_v2.Fragment.CommitFragment
+import wuan.nixo.com.wuan_android_v2.utils.SharedUtil
 import wuan.nixo.com.wuan_android_v2.utils.ToastUtils
 import wuan.nixo.com.wuan_android_v2.utils.view.BaseActivity
 
 class MainActivity : BaseActivity() , BottomNavigationBar.OnTabSelectedListener{
+    override val layoutId: Int
+        get() = R.layout.activity_main
 
-
-
-
-
-    override fun getLayoutId(): Int {
-        return R.layout.activity_main
-    }
 
     override fun initView() {
+
+        var userId = SharedUtil().getInt(this,"userId",0)
+
+        Log.i("Nixo","-------groupId-------"+userId)
+//        Log.i("Nixo","-------userId-------"+userId)
+
+        //        Log.i("Nixo","-------userId-------"+Preferences.getUserId())
+//        Log.i("Nixo","-------groupId-------"+Preferences.getInt("groupId"))
         bottom_navigation_bar.setBackgroundStyle(BottomNavigationBar.BACKGROUND_STYLE_STATIC)
         bottom_navigation_bar.setMode(BottomNavigationBar.MODE_SHIFTING)
 
@@ -55,6 +55,7 @@ class MainActivity : BaseActivity() , BottomNavigationBar.OnTabSelectedListener{
         supportFragmentManager.beginTransaction().apply {
             when (position) {
                 0 -> {
+                    replace(R.id.main_fragment, CommitFragment())
                     ToastUtils.newToastCenter(this@MainActivity, "首页")
                 }
                 1 -> {

@@ -17,6 +17,14 @@ object Api{
     val FINDALLGROUPINFO = baseUrl+"findAllGroupInfo"
     //选择分组
     val GROUP = baseUrl+"group"
+    //首页
+    val MAIN = baseUrl+"main"
+    //提交周报
+    val SUBMIT = baseUrl+"submit"
+    //提交请假
+    val LEAVE = baseUrl+"leave"
+    //取消请假
+    val CANCELLEAVE = baseUrl+"cancelLeave"
 
 
 

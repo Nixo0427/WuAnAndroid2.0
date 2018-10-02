@@ -25,9 +25,8 @@ import wuan.nixo.com.wuan_android_v2.utils.view.BaseActivity
 import java.lang.Exception
 
 class RegisterActivity :BaseActivity(), View.OnClickListener {
-    override fun getLayoutId(): Int {
-        return R.layout.activity_register
-    }
+    override val layoutId: Int
+        get() = R.layout.activity_register
 
     override fun initView() {
         tv_register.setOnClickListener(this)

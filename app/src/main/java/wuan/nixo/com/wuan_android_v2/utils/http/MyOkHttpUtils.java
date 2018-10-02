@@ -139,6 +139,7 @@ public class MyOkHttpUtils extends OkHttpUtils{
             @Override
             public void onResponse(final Call call, final Response response)
             {
+                Log.i("Nixo",response.toString());
                 try
                 {
                     if (call.isCanceled())
@@ -171,6 +172,7 @@ public class MyOkHttpUtils extends OkHttpUtils{
 
     public void sendFailResultCallback(final Call call, final Exception e, final Callback callback, final int id)
     {
+        e.printStackTrace();
         if (callback == null) return;
 
         mPlatform.execute(new Runnable()

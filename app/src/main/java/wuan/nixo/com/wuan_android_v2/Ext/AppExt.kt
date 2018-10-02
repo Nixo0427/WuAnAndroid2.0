@@ -1,4 +1,4 @@
-package wuan.nixo.com.wuan_android_v2.Ext
+package github.nixo.com.github.Ext
 
 import android.app.Application
 import android.content.ContextWrapper
