@@ -10,7 +10,7 @@
         android:layout_width="246dp"
         android:layout_height="130dp"
         android:layout_centerInParent="true"
-        android:background="@drawable/white_bg"
+        android:background="@drawable/bg_white_radius_6"
         android:orientation="vertical">
 
         <LinearLayout
@@ -68,7 +68,7 @@
                 android:background="@null"
                 android:gravity="center"
                 android:text="前去购买"
-                android:textColor="#FF5500" />
+                android:textColor="#ff1a00" />
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>

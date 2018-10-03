@@ -27,6 +27,7 @@
         <activity android:name=".View.GroupActivity" />
         <activity android:name=".View.CommitActivity" />
         <activity android:name=".View.WriteActivity" />
+        <activity android:name=".View.SeeNewsActivity" />
         <activity android:name=".View.LeaveActivity"></activity>
     </application>
 

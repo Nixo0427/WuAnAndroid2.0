@@ -198,7 +198,7 @@ public class QuestionsDialog extends BaseDialog {
             cancelListener = null;
             mCancel.setOnClickListener(null);
             mCancel.setVisibility(View.GONE);
-            mConfirm.setBackgroundResource(R.drawable.sel_bottom_all_radius);
+
         } else {
             mCancel.setText(cancel);
             mCancel.setOnClickListener(new View.OnClickListener() {

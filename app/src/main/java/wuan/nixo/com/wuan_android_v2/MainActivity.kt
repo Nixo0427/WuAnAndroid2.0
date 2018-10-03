@@ -8,6 +8,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 import wuan.nixo.com.wuan_android_v2.Ext.SharedExt
 import wuan.nixo.com.wuan_android_v2.Ext.pref
 import wuan.nixo.com.wuan_android_v2.Fragment.CommitFragment
+import wuan.nixo.com.wuan_android_v2.Fragment.PaureListFragment
 import wuan.nixo.com.wuan_android_v2.utils.SharedUtil
 import wuan.nixo.com.wuan_android_v2.utils.ToastUtils
 import wuan.nixo.com.wuan_android_v2.utils.view.BaseActivity
@@ -56,10 +57,11 @@ class MainActivity : BaseActivity() , BottomNavigationBar.OnTabSelectedListener{
             when (position) {
                 0 -> {
                     replace(R.id.main_fragment, CommitFragment())
-                    ToastUtils.newToastCenter(this@MainActivity, "首页")
+
                 }
                 1 -> {
-                    ToastUtils.newToastCenter(this@MainActivity, "周报")
+                    replace(R.id.main_fragment, PaureListFragment())
+
                 }
                 2 -> {
                     ToastUtils.newToastCenter(this@MainActivity, "我的")

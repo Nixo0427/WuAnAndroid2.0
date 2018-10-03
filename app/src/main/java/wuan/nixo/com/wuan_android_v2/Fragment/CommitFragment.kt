@@ -53,20 +53,10 @@ class CommitFragment :BaseFragment() , View.OnClickListener{
             override fun onResponse(response: String?, id: Int) {
                 var bean = Gson().fromJson(response,MainModel::class.java)
                 ("200".equals("${bean.infoCode}")).yes{
-                    SharedUtil().putString(activity!!.baseContext,"week","${bean.weekNum}")
+                    SharedUtil().putInt(activity!!.baseContext,"week",bean.weekNum)
                     SharedUtil().putString(activity!!.baseContext,"status","${bean.status}")
                     when(bean.status){
                         1->{
-                            commitnt_week.text = "已提交,距离${bean.weekNum}周结束还剩:"
-                            rv_commitnt.visibility = View.VISIBLE
-                            commitnt_bottom.visibility = View.GONE
-                            rv_leave.visibility = View.GONE
-                            commit_parpue.setOnClickListener(this@CommitFragment)
-                            commit_leave.setOnClickListener(this@CommitFragment)
-                            CountDownUtil(StaticClass.TIMER_TIME,1000,commitnt_d,commitnt_h,
-                                    commitnt_m,commitnt_s).start()
-                        }
-                        2->{
                             commit_parpue.setOnClickListener(this@CommitFragment)
                             commit_leave.setOnClickListener(this@CommitFragment)
                             commitnt_week.text = "未提交,距离${bean.weekNum}周结束还剩:"
@@ -76,6 +66,16 @@ class CommitFragment :BaseFragment() , View.OnClickListener{
                             CountDownUtil(StaticClass.TIMER_TIME,1000,commitnt_d,commitnt_h,
                                     commitnt_m,commitnt_s).start()
                             commitnt_bottom.visibility = View.VISIBLE
+                        }
+                        2->{
+                            commitnt_week.text = "已提交,距离${bean.weekNum}周结束还剩:"
+                            rv_commitnt.visibility = View.VISIBLE
+                            commitnt_bottom.visibility = View.GONE
+                            rv_leave.visibility = View.GONE
+                            commit_parpue.setOnClickListener(this@CommitFragment)
+                            commit_leave.setOnClickListener(this@CommitFragment)
+                            CountDownUtil(StaticClass.TIMER_TIME,1000,commitnt_d,commitnt_h,
+                                    commitnt_m,commitnt_s).start()
                         }
                         3->{
                             cancel_leave.setOnClickListener(this@CommitFragment)

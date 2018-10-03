@@ -25,6 +25,8 @@ object Api{
     val LEAVE = baseUrl+"leave"
     //取消请假
     val CANCELLEAVE = baseUrl+"cancelLeave"
+    //周报列表
+    val MYWEEKLY = baseUrl+"myweekly"
 
 
 
