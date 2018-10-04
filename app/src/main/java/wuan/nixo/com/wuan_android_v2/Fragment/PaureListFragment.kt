@@ -24,6 +24,8 @@ import wuan.nixo.com.wuan_android_v2.utils.http.MyOkHttpUtils
 import java.lang.Exception
 
 class PaureListFragment :BaseFragment() {
+    override val resourceView: Int
+        get() = R.layout.fragment_paurelist
 
     private val chooseGroup = object : PaureAdapter.chooseGroup {
         override fun onChoose(bean: PaureListModel.ReportsBean) {
@@ -41,9 +43,7 @@ class PaureListFragment :BaseFragment() {
         }
     }
 
-    override fun getResourceView(): Int {
-        return R.layout.fragment_paurelist
-    }
+
 
     override fun initView(savedInstanceState: Bundle?) {
         getPaureList()

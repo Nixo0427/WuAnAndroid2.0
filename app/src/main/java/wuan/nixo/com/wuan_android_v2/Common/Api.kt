@@ -27,6 +27,10 @@ object Api{
     val CANCELLEAVE = baseUrl+"cancelLeave"
     //周报列表
     val MYWEEKLY = baseUrl+"myweekly"
+    //修改用户名
+    val UPDATEUSERNAME = baseUrl+"updateUserName"
+    //修改PWD
+    val UPDATEPASSWORD = baseUrl+"updatePassword"
 
 
 

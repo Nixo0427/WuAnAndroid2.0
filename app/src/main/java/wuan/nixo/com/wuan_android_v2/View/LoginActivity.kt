@@ -26,6 +26,10 @@ class LoginActivity : BaseActivity() , View.OnClickListener {
     override fun initView() {
         tv_login.setOnClickListener(this)
         tv_register.setOnClickListener(this)
+        if(SharedUtil().getInt(this@LoginActivity,"userId",0)!=0){
+            startActivity(MainActivity::class.java)
+            finish()
+        }
     }
 
     override fun onClick(p0: View?) {
@@ -77,10 +81,14 @@ class LoginActivity : BaseActivity() , View.OnClickListener {
                     if(bean.groupId == 0){
                         startActivity(GroupActivity::class.java)
                     }else{
+                        SharedUtil().putString(this@LoginActivity,"email",account)
+                        SharedUtil().putString(this@LoginActivity,"name","${bean.userName}")
+                        SharedUtil().putString(this@LoginActivity,"groupName","${bean.groupName}")
                         SharedUtil().putInt(this@LoginActivity,"userId",bean.userId)
                         SharedUtil().putInt(this@LoginActivity,"groupId",bean.groupId)
                         ToastUtils.newToastCenter(this@LoginActivity,"登录成功")
                         startActivity(MainActivity::class.java)
+                        finish()
                     }
 
                 }else{

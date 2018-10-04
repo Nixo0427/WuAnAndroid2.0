@@ -31,11 +31,10 @@ import wuan.nixo.com.wuan_android_v2.utils.http.MyOkHttpUtils
 import java.lang.Exception
 
 class CommitFragment :BaseFragment() , View.OnClickListener{
+    override val resourceView: Int
+        get() = R.layout.fragment_commited
 
 
-    override fun getResourceView(): Int {
-        return R.layout.fragment_commited
-    }
 
 
     override fun initView(savedInstanceState: Bundle?) {

@@ -8,6 +8,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 import wuan.nixo.com.wuan_android_v2.Ext.SharedExt
 import wuan.nixo.com.wuan_android_v2.Ext.pref
 import wuan.nixo.com.wuan_android_v2.Fragment.CommitFragment
+import wuan.nixo.com.wuan_android_v2.Fragment.MineFragment
 import wuan.nixo.com.wuan_android_v2.Fragment.PaureListFragment
 import wuan.nixo.com.wuan_android_v2.utils.SharedUtil
 import wuan.nixo.com.wuan_android_v2.utils.ToastUtils
@@ -22,11 +23,7 @@ class MainActivity : BaseActivity() , BottomNavigationBar.OnTabSelectedListener{
 
         var userId = SharedUtil().getInt(this,"userId",0)
 
-        Log.i("Nixo","-------groupId-------"+userId)
-//        Log.i("Nixo","-------userId-------"+userId)
 
-        //        Log.i("Nixo","-------userId-------"+Preferences.getUserId())
-//        Log.i("Nixo","-------groupId-------"+Preferences.getInt("groupId"))
         bottom_navigation_bar.setBackgroundStyle(BottomNavigationBar.BACKGROUND_STYLE_STATIC)
         bottom_navigation_bar.setMode(BottomNavigationBar.MODE_SHIFTING)
 
@@ -36,7 +33,6 @@ class MainActivity : BaseActivity() , BottomNavigationBar.OnTabSelectedListener{
                 .addItem(BottomNavigationItem(R.mipmap.me,"我的"))
                 .setFirstSelectedPosition(0)
                 .initialise()
-        bottom_navigation_bar.hide(true)
         bottom_navigation_bar.setTabSelectedListener(this)
         onTabSelected(0)
 
@@ -57,14 +53,12 @@ class MainActivity : BaseActivity() , BottomNavigationBar.OnTabSelectedListener{
             when (position) {
                 0 -> {
                     replace(R.id.main_fragment, CommitFragment())
-
                 }
                 1 -> {
                     replace(R.id.main_fragment, PaureListFragment())
-
                 }
                 2 -> {
-                    ToastUtils.newToastCenter(this@MainActivity, "我的")
+                    replace(R.id.main_fragment, MineFragment())
                 }
             }
         }.commitAllowingStateLoss()

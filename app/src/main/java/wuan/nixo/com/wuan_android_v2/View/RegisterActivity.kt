@@ -30,6 +30,7 @@ class RegisterActivity :BaseActivity(), View.OnClickListener {
 
     override fun initView() {
         tv_register.setOnClickListener(this)
+        tv_login.setOnClickListener(this)
     }
 
     override fun onClick(p0: View?) {
@@ -61,7 +62,7 @@ class RegisterActivity :BaseActivity(), View.OnClickListener {
             }
 
             tv_login -> {
-                startActivity(LoginActivity::class.java)
+                finish()
             }
         }
     }
